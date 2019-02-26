@@ -10,7 +10,11 @@ function listPeople(db, name) {
     if (err) {
         return console.error("Connection Error", err);
 }
-    console.log(`found ${res.rows.length} person(s) by the name '${command}'`, res.rows);
+    console.log(`found ${res.rows.length} person(s) by the name ${command}`);
+    res.rows.forEach(function(spot) {
+    //    console.log(spot)
+        console.log(spot.first_name, spot.last_name, ', born', spot.birthdate );
+    })
     db.end();
   });
 }
